@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>노을</title>
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            background-color: black;
+            position: fixed;
+        }
+        #scene {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+            margin: 0 auto;
+            overflow: hidden;
+            /*background: ;*/
+            /*filter: hue-rotate();*/
+            /*cursor: url("images/dawn/마우스커서_손.png"), auto*/
+        }
+        #background {
+            position: absolute;
+            z-index: -10;
+            width: 100%;
+            height: 100%;
+            background-image: url("../images/dawn/배경.png");
+            /*background-color: #D39871;*/
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transform: scale(1.1);
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div id="scene">
+        <div id="background"></div>
+        <img src="../images/morning/flower.png" id="cloud"/>
+    </div>
+    <script type="text/javascript" src="sunset.js"></script>
+</body>
+</html>

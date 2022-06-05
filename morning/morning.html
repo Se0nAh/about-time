@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>아침</title>
+    <style>
+        body {
+
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            background-color: black;
+            position: fixed;
+        }
+        .scene {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+            margin: 0 auto;
+            background-image: url("../images/morning/background.png");
+            background-color: #D39871;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        #uiSection {
+            position: absolute;
+            width: 1280px;
+            height: 720px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url("../images/morning/guide1.PNG");
+            transition: opacity 0.1s;
+        }
+
+        .toaster {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        #flower {
+            position: absolute;
+            left: 250px;
+            top: 170px;
+            background-image: url("../images/morning/flower.png");
+            /*background-position: left top;*/
+            width: 113px;
+            height: 113px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            /*transition: rotate 1s;*/
+        }
+
+        #handle {
+            position: absolute;
+            left: 780px;
+            top: 380px;
+            z-index: 15;
+            width: 46px;
+            height: 56px;
+            cursor: pointer;
+
+            background-image: url("../images/morning/toaster-handle.png");
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            -webkit-transition: -webkit-transform 0.75s;
+            transition: transform 0.75s;
+        }
+
+        .toasterFront {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url("../images/morning/toaster-front.png");
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            z-index: 5;
+        }
+
+        #canvas {
+            position: absolute;
+            border: 4px dashed saddlebrown;
+            margin-top: 390px;
+            margin-left: 535px;
+            z-index: 10;
+        }
+
+        #breadContainer {
+            position: absolute;
+            background-image: url("../images/morning/bread.png");
+            background-size: 216px 243px;
+            background-repeat: no-repeat;
+            top: 200px;
+            left: 530px;
+            width: 216px;
+            height: 242px;
+            cursor: pointer;
+            -webkit-transition: -webkit-transform 0.75s;
+            transition: transform 0.75s;
+        }
+
+        #bread {
+
+            width: 478px;
+            height: 539px;
+        }
+
+        #gaugeBar {
+            visibility: hidden;
+            position: absolute;
+            width: 210px;
+            height: 30px;
+            background-color: #e7e2e0;
+            border-radius: 30px;
+            overflow: hidden;
+            border: #513324 6px solid;
+            left: 500px;
+            top: 620px;
+        }
+
+        #gaugeBar-fill {
+            width: 3%;
+            height: 30px;
+            background-color: #ffca36;
+            border-radius: 30px;
+            -webkit-transition: -webkit-width 0.35s;
+            transition: width 0.35s;
+        }
+
+        .bounce {
+            animation: bounce 0.8s ease forwards;
+        }
+
+        @keyframes bounce {
+            from {
+                transform: scale(1, 1);
+            }
+            to {
+                transform: translateY(-70%) scale(1, 1);
+            }
+            25% {
+                transform: translateY(-70%);
+            }
+            40% {
+                transform: translateY(-55%);
+            }
+            50% {
+                transform: translateY(-70%);
+            }
+            60% {
+                transform: translateY(-60%);
+            }
+            75% {
+                transform: translateY(-70%);
+            }
+            90% {
+                transform: translateY(-65%);
+            }
+            100% {
+                transform: translateY(-70%);
+            }
+        }
+
+
+        @keyframes softBounce {
+            0% {
+                transform: translateY(0%);
+            }
+            50% {
+                transform: translateY(-3%);
+            }
+            100% {
+                transform: translateY(0%);
+            }
+        }
+
+        .softBounce {
+            animation: softBounce 1s linear infinite;
+        }
+
+        .spin {
+            animation: spin 3s ease forwards;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(720deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="scene">
+    <div id="uiSection" class="softBounce"></div>
+    <div id="flower"></div>
+    <div id="handle">
+        <!--            <img src="toaster-handle.png"/>-->
+    </div>
+    <div class="toaster">
+        <div id="breadContainer" class="">
+            <div id="bread"></div>
+        </div>
+        <div class="toasterFront">
+        </div>
+        <canvas id="canvas">
+        </canvas>
+    </div>
+    <div id="gaugeBar">
+        <div id="gaugeBar-fill"></div>
+    </div>
+</div>
+<script>
+    let isDrawingComplete = false;
+    let toastTimer
+    let isToasting = false
+    let toastCompleted = false
+    let isBread
+    const canvas = document.getElementById("canvas");
+    canvas.style.marginLeft = 200 + "";
+    canvas.width = 150;
+    canvas.height = 160;
+    console.log(canvas.width, canvas.height)
+    let context = canvas.getContext("2d");
+
+    const breadCanvas = document.createElement("canvas")
+    breadCanvas.width = 150
+    breadCanvas.height = 160
+    breadCanvas.style.marginLeft = "25px"
+    breadCanvas.style.marginTop = "50px"
+
+    const breadCanvasCtx = breadCanvas.getContext("2d")
+    const bread = document.getElementById("bread")
+    const breadContainer = document.getElementById("breadContainer")
+    const handle = document.getElementById("handle")
+    const gaugeBar = document.getElementById("gaugeBar")
+    const gaugeFill = document.getElementById("gaugeBar-fill")
+    const flower = document.getElementById("flower")
+    const uiSection = document.getElementById("uiSection")
+
+
+    bread.append(breadCanvas)
+    const handleClickComplete = () => {
+        // console.log("handle", handle)
+        //transform:translateY(-100%);
+        if (!isDrawingComplete) {
+            isDrawingComplete = true
+            gaugeBar.style.visibility = "visible"
+            handle.style.transform = "translateY(165%)"
+            breadContainer.style.transform = "translateY(30%)"
+            uiSection.style.backgroundImage = "url('../images/morning/guide2.PNG')"
+        }
+    }
+    const toastCompleteTime = 1.0
+    let toastTime = 0.0;
+
+    handle.addEventListener('click', handleClickComplete)
+
+
+    const toastBread = (e) => {
+        if (e.keyCode === 32) {
+            if (!isToasting && !toastCompleted) {
+                isToasting = true;
+                toastTimer = setInterval(() => {
+                    console.log("toasting...", toastTime)
+                    toastTime += 0.1;
+                    gaugeFill.style.width = (toastTime / toastCompleteTime) * 100 + "%"
+                    if (toastTime >= toastCompleteTime/2) {
+                    }
+                    if (toastTime >= toastCompleteTime) {
+                        uiSection.style.opacity = "0";
+
+                        breadCanvasCtx.drawImage(canvas, 0, 0)
+                        console.log("Toasty!!")
+                        breadContainer.classList.add("bounce")
+                        handle.style.transitionDuration = "0.1s"
+                        handle.style.transform = "translateY(100%)";
+                        toastCompleted = true
+                        flower.classList.add("spin")
+                    }
+                }, 100)
+            }
+        }
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (isDrawingComplete) {
+            toastBread(e)
+        }
+    })
+
+    window.addEventListener('keyup', (e) => {
+        if (!isToasting) return
+        isToasting = false
+        clearInterval(toastTimer)
+    })
+
+    // 펜설정, 컬러 굵기
+    let draw_color = "#c28131";
+    let draw_width = "12";
+    let is_drawing = false;
+
+    let restore_array = [];
+    let index = -1;
+
+    canvas.addEventListener("touchstart", start, false);
+    canvas.addEventListener("touchmove", draw, false);
+    canvas.addEventListener("mousedown", start, false);
+    canvas.addEventListener("mousemove", draw, false);
+
+    canvas.addEventListener("touchend", stop, false);
+    canvas.addEventListener("mouseup", stop, false);
+    canvas.addEventListener("mouseout", stop, false);
+
+    // 이미지 그리는 부분
+    function start(event) {
+        is_drawing = true;
+        let diff = 0
+        if (window.innerWidth > 1280) {
+            diff = (window.innerWidth - 1280) / 2
+        }
+        context.beginPath();
+        context.moveTo(event.clientX - canvas.offsetLeft - diff,
+            event.clientY - canvas.offsetTop);
+        event.preventDefault();
+
+        if (event.type != 'mouseout') {
+            restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
+            index += 1;
+        }
+        console.log(restore_array);
+    }
+
+    function draw(event) {
+        if (is_drawing) {
+            let diff = 0
+            if (window.innerWidth > 1280) {
+                diff = (window.innerWidth - 1280) / 2
+            }
+            context.lineTo(event.clientX - canvas.offsetLeft - diff,
+                event.clientY - canvas.offsetTop);
+            context.strokeStyle = draw_color;
+            context.lineWidth = draw_width;
+            context.lineCap = "round";
+            context.lineJoin = "round";
+            context.stroke();
+        }
+    }
+
+    function stop(event) {
+        if (is_drawing) {
+            context.stroke();
+            context.closePath();
+            is_drawing = false;
+        }
+        event.preventDefault();
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Daytime</title>
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            background-color: black;
+            position: fixed;
+        }
+
+        .tree {
+            position: absolute;
+            z-index: 20;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-image: url("../images/daytime/벚꽃나무.png");
+            width: 1280px;
+            height: 360px;
+            background-size: 1280px 720px;
+            background-repeat: no-repeat;
+        }
+
+        #scene {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+            margin: 0 auto;
+            overflow: hidden;
+            background-image: url("../images/daytime/배경.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+
+        #introduction {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 50;
+            background-image: url("../images/daytime/DayTime_Title.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: fadeout 2s forwards;
+        }
+
+        #guide {
+            width: 100%;
+            position: absolute;
+            animation: fadein 1.5s forwards;
+            opacity: 0;
+            animation-delay: 2s;
+            transition: opacity;
+            z-index: 30;
+        }
+
+        .mainText {
+            display: block;
+            margin: 400px auto 0 auto;
+
+        }
+
+        .interationMent {
+            display: block;
+            margin: 80px auto 0 auto;
+        }
+
+
+        /* customizable snowflake styling */
+        .petal {
+            /*background-image: url("images/daytime/벚꽃1.png");*/
+            position: absolute;
+            /*position: relative;*/
+            top: -10%;
+            z-index: 10;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            cursor: default;
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 23px;
+            height: 33px;
+
+        }
+
+        .newPetal {
+            /*background-image: url("images/daytime/벚꽃1.png");*/
+            /*position: absolute;*/
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 36px;
+            height: 48px;
+        }
+
+        .image1 {
+            background-image: url("../images/daytime/벚꽃1.png");
+            /*background-size: contain;*/
+            /*width: 32px;*/
+            /*height: 25px;*/
+        }
+
+        .image2 {
+            background-image: url("../images/daytime/벚꽃2.png");
+            /*background-size: contain;*/
+            /*width: 32px;*/
+            /*height: 25px;*/
+        }
+
+        @keyframes fadeout {
+            0% {
+                opacity: 1;
+            }
+            75% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        @keyframes fadein {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes petals-fall {
+            0% {
+                top: 0%
+            }
+            100% {
+                top: 110%
+            }
+        }
+
+        @-webkit-keyframes petals-shake {
+            0% {
+                -webkit-transform: translateX(0px) rotateZ(20deg);
+                transform: translateX(0px) rotateZ(20deg);
+            }
+            50% {
+                -webkit-transform: translateX(80px) rotateZ(-20deg);
+                transform: translateX(80px) rotateZ(-20deg);
+            }
+            100% {
+                -webkit-transform: translateX(0px) rotateZ(20deg);
+                transform: translateX(0px) rotateZ(20deg);
+            }
+        }
+
+        @keyframes petals-fall {
+            0% {
+                top: 0%
+            }
+            100% {
+                top: 110%
+            }
+        }
+
+        @keyframes petals-shake {
+            0% {
+                transform: translateX(0px) rotateZ(20deg);
+            }
+            50% {
+                transform: translateX(80px) rotateZ(-20deg);
+            }
+            100% {
+                transform: translateX(0px) rotateZ(20deg);
+            }
+        }
+
+
+        @keyframes petals-windy {
+            0% {
+                transform: translateX(0px) rotateX(10deg) rotateY(0deg);
+            }
+            100% {
+                transform: translateX(1680px) rotateX(720deg) rotateY(60deg);
+            }
+        }
+
+
+        .defaultAnimation {
+            -webkit-animation-name: petals-fall, petals-shake;
+            -webkit-animation-duration: 10s, 3s;
+            -webkit-animation-timing-function: linear, ease-in-out;
+            -webkit-animation-iteration-count: infinite, infinite;
+            -webkit-animation-play-state: running, running;
+            animation-name: petals-fall, petals-shake;
+            animation-duration: 10s, 3s;
+            animation-timing-function: linear, ease-in-out;
+            animation-iteration-count: infinite, infinite;
+            animation-play-state: running, running
+        }
+
+        .windyAnimation {
+            -webkit-animation-name: petals-fall, petals-windy;
+            -webkit-animation-duration: 5s, 5s;
+            -webkit-animation-timing-function: linear, ease-in;
+            -webkit-animation-iteration-count: 1, infinite;
+            -webkit-animation-play-state: running, running;
+            animation-name: petals-fall, petals-windy;
+            animation-duration: 5s, 5s;
+            animation-timing-function: linear, ease-in;
+            animation-iteration-count: 1, infinite;
+            animation-play-state: running, running
+        }
+
+        .fall-once {
+            -webkit-animation-iteration-count: 1, infinite;
+            animation-iteration-count: 1, infinite;
+
+        }
+
+        .fall-infinite {
+            -webkit-animation-iteration-count: infinite, infinite;
+            animation-iteration-count: infinite, infinite;
+        }
+
+        .demo a {
+            font-family: 'Raleway', sans-serif;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+<div id="scene">
+    <div id="introduction"></div>
+    <div id="guide">
+        <img class="interationMent" src="../images/daytime/DayTime_InterationMent.png" width="328" height="96"/>
+        <img class="mainText" src="../images/daytime/DayTime_MainText.png" width="628" height="56"/>
+    </div>
+    <div class="tree"></div>
+    <div id="petal-group">
+    </div>
+
+</div>
+
+<script>
+    const scene = document.getElementById('scene')
+    const guide = document.getElementById('guide')
+    const petalGroup = document.getElementById('petal-group')
+    const petalPositionXRange = [-50, 99]
+    const toggleAnimationForExistsPetals = false
+    const createPetal = () => {
+        const newPetal = document.createElement('div')
+        newPetal.className = `petal defaultAnimation image${getRandomIntInclusive(1, 2)} fall-infinite`
+
+        newPetal.style.left = getRandomIntInclusive(0, 99) + "%"
+        console.log(`${getRandomIntInclusive(0, 18) / 2}s ${getRandomIntInclusive(0, 6) / 3}s`)
+        const fallingDelay = getRandomIntInclusive(0, 40) / 4
+        const shakeDelay = getRandomIntInclusive(1, 20) / 10
+        newPetal.style.animationDelay = `${fallingDelay}s, ${shakeDelay}s`
+        return newPetal
+    }
+
+    for (let i = 0; i < 20; i++) {
+        petalGroup.append(createPetal(true))
+    }
+
+    function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min; //최댓값도 포함, 최솟값도 포함
+    }
+
+
+    const createNewWindyPetal = () => {
+        const left = getRandomIntInclusive(petalPositionXRange[0], petalPositionXRange[1])
+        const newPetal = document.createElement('div')
+        newPetal.className = `petal windyAnimation image${getRandomIntInclusive(1, 2)}`
+        // newPetal.style.backgroundColor = "red"
+        newPetal.style.left = left + "%"
+        return newPetal
+    }
+
+    let isWindy = false
+    let createPetalTimer
+    const blowWind = (e) => {
+        if (e.keyCode === 32) {
+            if (!isWindy) {
+                guide.style.animation = "fadeout 1s forwards"
+                guide.style.animationDelay = "0s"
+                isWindy = true
+                createPetalTimer = setInterval(() => {
+                    scene.append(createNewWindyPetal())
+                }, 150)
+                petalGroup.childNodes.forEach(item => console.log(item.nodeValue))
+            }
+        }
+    }
+    const stopWind = (e) => {
+        if (e.keyCode === 32) {
+            if (!isWindy) return
+            isWindy = false
+            clearInterval(createPetalTimer)
+        }
+    }
+
+
+    window.addEventListener('keydown', blowWind)
+
+    window.addEventListener('keyup', stopWind)
+
+</script>
+</body>
+</html>
