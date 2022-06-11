@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background-image: url("images/main/bg/1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    transition: background-image 0.3s ease-in-out;
+}
+
+.scene {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 50px;
+    width: 1280px;
+    height: 720px;
+    margin: 0 auto;
+    /*background-color: #ffca36;*/
+}
+
+.cloud {
+    margin: 80px auto;
+    width: 1406px;
+    height: 388px;
+    /*right: 0;*/
+    background-image: url("images/main/cloud/1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: background-image 0.3s ease-in-out;
+}
+
+.guide {
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -35px;
+    margin: 0 auto;
+    text-align: center;
+
+    z-index: 30;
+}
+.introduction {
+    display: block;
+    margin: 10px auto;
+}
+.artwork-link {
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    width: fit-content;
+    height: fit-content;
+    /*position: absolute;*/
+    /*z-index: 30;*/
+
+}
+
+.cloud-container {
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    left: -80px;
+}
+
+.sun-area-for-interact {
+    position: absolute;
+    width: 720px;
+    height: 1px;
+    transform: scaleX(1.2);
+    z-index: 20;
+    cursor: grab;
+}
+
+.sun-area-for-interact:active {
+    cursor: grabbing;
+}
+.sun-area-for-display {
+    position: absolute;
+    width: 720px;
+    height: 1px;
+    transform: scaleX(1.2);
+}
+
+.sun-for-display {
+    /*width: 50px;*/
+    /*height: 50px;*/
+    /*border-radius: 100px;*/
+    /*background-color: dodgerblue;*/
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    left: -80px;
+    top: -80px;
+    transform: scaleX(0.83333);
+    transition: background-image 0.3s ease-in-out;
+    background-image: url("images/main/sun/1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.sun-for-interact
+{
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    left: -80px;
+    top: -80px;
+    transform: scaleX(0.83333);
+}
+
+.center-point {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+}
