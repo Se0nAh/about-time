@@ -53,4 +53,5 @@ if (window.location.pathname.includes('photo-booth')
     logoImg.src = "../images/logo-white.png"
     document.documentElement.style.setProperty('--nav-background-color', 'rgba(255, 255, 255 , 0.3)');
     document.documentElement.style.setProperty('--nav-text-color', 'white');
+    header.style.textShadow = "rgba(0, 0, 0, 0.2) 1px 0 6px"
 }
