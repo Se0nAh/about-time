@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Midnight - ABOUT TIME</title>
+    <link rel="stylesheet" type="text/css" href="header.css"/>
+    <link rel="stylesheet" type="text/css" href="loading.css"/>
+    <link rel="stylesheet" type="text/css" href="defaultStyle.css"/>
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            background-color: black;
+            position: fixed;
+        }
+
+        .bg-blur {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background-image: linear-gradient(
+                    rgba(0, 0, 0, 0.1),
+                    rgba(0, 0, 0, 0.1)
+            ),
+            url("images/gallery/gallery-midnight.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            filter: blur(10px);
+            z-index: -10;
+            transform: scale(1.2);
+        }
+
+        #scene {
+            position: relative;
+            width: auto;
+            height: 100vh;
+            aspect-ratio: 16/9;
+            margin: 0 auto;
+            overflow: hidden;
+            background-image: url("images/gallery/gallery-midnight.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+
+</head>
+<body>
+<div class="loading-screen">
+    <div class="loading-text">
+    </div>
+</div>
+<div class="bg-blur"></div>
+<div id="scene" class="shadow">
+</div>
+<script type="text/javascript" src="js/header.js"></script>
+<script type="module" src="js/midnight.js"></script>
+</body>
+</html>
