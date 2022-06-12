@@ -27,10 +27,21 @@
             margin-bottom: 10px;
         }
         .artwork-image {
+            position: relative;
             outline: 1px #56676d solid;
             outline-offset: 4px;
             width: 100%;
+            background-color: #c5d2d5;
             margin-bottom: 10px;
+        }
+        .artwork-image:before {
+            content: '-';
+            content-visibility: hidden;
+            position: absolute;
+            left:0;
+            right:0;
+            top:0;
+            bottom: 0;
         }
         .artwork-title {
             font-size: 20px;
