@@ -1,10 +1,10 @@
 let currentStep = 0
 const hrefByStep = ["/dawn", "/daytime", "/morning", "/sunset", "/evening", "/midnight"]
 let isMouseDown = false;
-const scene = document.querySelector(".scene");
-const bg = document.querySelector("body");
+const mainScene = document.querySelector(".scene");
+const mainBg = document.querySelector("body");
 let cloud = document.querySelector(".cloud");
-let center = { x: scene.clientWidth/2, y: scene.clientHeight - 100 };
+let center = { x: mainScene.clientWidth/2, y: mainScene.clientHeight - 100 };
 
 let sunForInteract = document.querySelector(".sun-for-interact");
 let sunForDisplay = document.querySelector(".sun-for-display");
@@ -34,7 +34,7 @@ sunForInteract.onmousedown = function(e) {
     isMouseDown = true;
     let currentDeg
     function onMouseMove(e) {
-        let radian = Math.atan2(e.pageY - scene.offsetTop - center.y, e.pageX - scene.offsetLeft - center.x);
+        let radian = Math.atan2(e.pageY - mainScene.offsetTop - center.y, e.pageX - mainScene.offsetLeft - center.x);
         currentDeg = Math.max(Math.min(endDegree, (180 * radian / Math.PI -180)), startDegree-10)
         sunAreaForDisplay.style.transform = 'rotate(' + currentDeg + 'deg) scaleX(1.2)';
         sunAreaForInteract.style.transform = 'rotate(' + currentDeg + 'deg) scaleX(1.2)';
@@ -42,7 +42,7 @@ sunForInteract.onmousedown = function(e) {
         if (stepByDegree !== currentStep) {
             currentStep = stepByDegree
             sunForDisplay.style.backgroundImage = `url("images/main/sun/${currentStep+1}.png")`
-            bg.style.backgroundImage = `url("images/main/bg/${currentStep+1}.png")`
+            mainBg.style.backgroundImage = `url("images/main/bg/${currentStep+1}.png")`
             cloud.style.backgroundImage = `url("images/main/cloud/${currentStep+1}.png")`
             artworkLinkButton.href = hrefByStep[currentStep]
         }
