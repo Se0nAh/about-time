@@ -28,7 +28,7 @@
             z-index: -10;
             transform: scale(1.2);
         }
-        .scene {
+        #scene {
             position: relative;
             width: 1280px;
             height: 720px;
@@ -38,6 +38,59 @@
             background-size: contain;
             background-repeat: no-repeat;
         }
+
+        #introduction {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            bottom: 0;
+            z-index: 50;
+            background-image: url("../images/morning/1. Morning_Title.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: fadeout 3s forwards;
+        }
+
+        #guide {
+            width: 100%;
+            height: 100px;
+            position: absolute;
+            bottom: 0;
+            animation: fadein, fadeout;
+            animation-duration: 1.5s, 2s;
+            animation-delay: 2s, 8s;
+            animation-fill-mode: forwards, forwards;
+            opacity: 0;
+            transition: opacity;
+            z-index: 30;
+            background-image: url("../images/morning/2. Morning_Text.png");
+            background-size: cover;
+            background-position: bottom;
+            background-repeat: no-repeat;
+        }
+
+        @keyframes fadeout {
+            0% {
+                opacity: 1;
+            }
+            75% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        @keyframes fadein {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
         #uiSection {
             position: absolute;
             width: 1280px;
@@ -102,6 +155,7 @@
             margin-top: 390px;
             margin-left: 535px;
             z-index: 10;
+            cursor: pointer;
         }
 
         #breadContainer {
@@ -213,7 +267,9 @@
 </head>
 <body>
 <div class="bg-blur"></div>
-<div class="scene">
+<div id="scene" class="shadow">
+    <div id="introduction"></div>
+    <div id="guide"></div>
     <div id="uiSection" class="softBounce"></div>
     <div id="flower"></div>
     <div id="handle">
@@ -250,6 +306,7 @@
     breadCanvas.style.marginLeft = "25px"
     breadCanvas.style.marginTop = "50px"
 
+    const scene = document.getElementById("scene");
     const breadCanvasCtx = breadCanvas.getContext("2d")
     const bread = document.getElementById("bread")
     const breadContainer = document.getElementById("breadContainer")
@@ -281,7 +338,6 @@
             if (!isToasting && !toastCompleted) {
                 isToasting = true;
                 toastTimer = setInterval(() => {
-                    console.log("toasting...", toastTime)
                     toastTime += 0.1;
                     gaugeFill.style.width = (toastTime / toastCompleteTime) * 100 + "%"
                     if (toastTime >= toastCompleteTime/2) {
@@ -290,7 +346,6 @@
                         uiSection.style.opacity = "0";
 
                         breadCanvasCtx.drawImage(canvas, 0, 0)
-                        console.log("Toasty!!")
                         breadContainer.classList.add("bounce")
                         handle.style.transitionDuration = "0.1s"
                         handle.style.transform = "translateY(100%)";
@@ -314,7 +369,6 @@
         clearInterval(toastTimer)
     })
 
-    // 펜설정, 컬러 굵기
     let draw_color = "#c28131";
     let draw_width = "12";
     let is_drawing = false;
@@ -334,13 +388,10 @@
     // 이미지 그리는 부분
     function start(event) {
         is_drawing = true;
-        let diff = 0
-        if (window.innerWidth > 1280) {
-            diff = (window.innerWidth - 1280) / 2
-        }
+
         context.beginPath();
-        context.moveTo(event.clientX - canvas.offsetLeft - diff,
-            event.clientY - canvas.offsetTop);
+        context.moveTo(event.clientX - canvas.offsetLeft - scene.offsetLeft,
+            event.clientY - canvas.offsetTop - scene.offsetTop);
         event.preventDefault();
 
         if (event.type != 'mouseout') {
@@ -352,12 +403,8 @@
 
     function draw(event) {
         if (is_drawing) {
-            let diff = 0
-            if (window.innerWidth > 1280) {
-                diff = (window.innerWidth - 1280) / 2
-            }
-            context.lineTo(event.clientX - canvas.offsetLeft - diff,
-                event.clientY - canvas.offsetTop);
+            context.lineTo(event.clientX - canvas.offsetLeft - scene.offsetLeft,
+                event.clientY - canvas.offsetTop - scene.offsetTop);
             context.strokeStyle = draw_color;
             context.lineWidth = draw_width;
             context.lineCap = "round";
