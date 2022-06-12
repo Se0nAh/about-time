@@ -1,5 +1,5 @@
 // webcam 관련 코드: https://velog.io/@davelee/browser%EC%97%90%EC%84%9C-webcam-%EC%9D%B4%EC%9A%A9%ED%95%98%EA%B8%B0
-import {preloading, onReady, setVisible} from "../utility.js";
+import {preloading, onReady, setVisible} from "./utility.js";
 
 try {
     await preloading([

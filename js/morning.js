@@ -1,4 +1,4 @@
-import {preloading, onReady, setVisible} from "../utility.js";
+import {preloading, onReady, setVisible} from "./utility.js";
 
 try {
     await preloading([
