@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>노을</title>
+    <title>Sunset - ABOUT TIME</title>
+    <link rel="stylesheet" type="text/css" href="../header.css"/>
+    <link rel="stylesheet" type="text/css" href="../defaultStyle.css"/>
     <style>
         body {
             width: 100%;
@@ -11,6 +13,23 @@
             background-color: black;
             position: fixed;
         }
+
+        .bg-blur {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background-image: linear-gradient(
+                    rgba(0, 0, 0, 0.1),
+                    rgba(0, 0, 0, 0.1)
+            ),
+            url("../images/gallery/gallery-sunset.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            filter: blur(10px);
+            z-index: -10;
+            transform: scale(1.2);
+        }
+
         #scene {
             position: relative;
             width: 1280px;
@@ -80,15 +99,19 @@
             background-position: center;
             transform: scale(1.1);
         }
+
         img {
             position: absolute;
         }
+
         #cloud1 {
             left: -300px;
         }
+
         #cloud2 {
             right: -150px;
         }
+
         #tree {
             z-index: 10;
             transform: scale(1.1);
@@ -97,20 +120,22 @@
 
 </head>
 <body>
-    <div id="scene">
-        <div id="introduction"></div>
-        <div id="guide"></div>
-        <div id="background">
-            <img src="../images/sunset/moon.png" width="1280" height="720"/>
-        </div>
-        <img src="../images/sunset/tree.png" id="tree" width="1280" height="720"/>
-        <div id="cloud-container1">
-            <img src="../images/sunset/cloud1.png" id="cloud1" width="1280" height="720"/>
-        </div>
-        <div id="cloud-container2">
-            <img src="../images/sunset/cloud2.png" id="cloud2" width="1280" height="720"/>
-        </div>
+<div class="bg-blur"></div>
+<div id="scene" class="shadow">
+    <div id="introduction"></div>
+    <div id="guide"></div>
+    <div id="background">
+        <img src="../images/sunset/moon.png" width="1280" height="720"/>
     </div>
-    <script type="text/javascript" src="sunset.js"></script>
+    <img src="../images/sunset/tree.png" id="tree" width="1280" height="720"/>
+    <div id="cloud-container1">
+        <img src="../images/sunset/cloud1.png" id="cloud1" width="1280" height="720"/>
+    </div>
+    <div id="cloud-container2">
+        <img src="../images/sunset/cloud2.png" id="cloud2" width="1280" height="720"/>
+    </div>
+</div>
+<script type="text/javascript" src="../header.js"></script>
+<script type="text/javascript" src="sunset.js"></script>
 </body>
 </html>

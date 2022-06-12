@@ -2,15 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>아침</title>
+    <title>Morning - ABOUT TIME</title>
+    <link rel="stylesheet" type="text/css" href="../header.css"/>
+    <link rel="stylesheet" type="text/css" href="../defaultStyle.css"/>
     <style>
         body {
-
             width: 100%;
             height: 100%;
             margin: 0;
             background-color: black;
             position: fixed;
+        }
+        .bg-blur {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background-image: linear-gradient(
+                    rgba(0, 0, 0, 0.1),
+                    rgba(0, 0, 0, 0.1)
+            ),
+            url("../images/gallery/gallery-morning.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            filter: blur(10px);
+            z-index: -10;
+            transform: scale(1.2);
         }
         .scene {
             position: relative;
@@ -196,11 +212,11 @@
     </style>
 </head>
 <body>
+<div class="bg-blur"></div>
 <div class="scene">
     <div id="uiSection" class="softBounce"></div>
     <div id="flower"></div>
     <div id="handle">
-        <!--            <img src="toaster-handle.png"/>-->
     </div>
     <div class="toaster">
         <div id="breadContainer" class="">
@@ -215,12 +231,12 @@
         <div id="gaugeBar-fill"></div>
     </div>
 </div>
+<script type="text/javascript" src="../header.js"></script>
 <script>
     let isDrawingComplete = false;
     let toastTimer
     let isToasting = false
     let toastCompleted = false
-    let isBread
     const canvas = document.getElementById("canvas");
     canvas.style.marginLeft = 200 + "";
     canvas.width = 150;
@@ -246,8 +262,6 @@
 
     bread.append(breadCanvas)
     const handleClickComplete = () => {
-        // console.log("handle", handle)
-        //transform:translateY(-100%);
         if (!isDrawingComplete) {
             isDrawingComplete = true
             gaugeBar.style.visibility = "visible"
@@ -360,8 +374,6 @@
         }
         event.preventDefault();
     }
-
-
 </script>
 </body>
 </html>

@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Daytime</title>
+    <title>Daytime - ABOUT TIME</title>
+    <link rel="stylesheet" type="text/css" href="../header.css"/>
+    <link rel="stylesheet" type="text/css" href="../defaultStyle.css"/>
     <style>
         body {
             width: 100%;
@@ -10,6 +12,21 @@
             margin: 0;
             background-color: black;
             position: fixed;
+        }
+        .bg-blur {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background-image: linear-gradient(
+                rgba(0, 0, 0, 0.1),
+                rgba(0, 0, 0, 0.1)
+            ),
+            url("../images/gallery/gallery-daytime.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            filter: blur(10px);
+            z-index: -10;
+            transform: scale(1.2);
         }
 
         .tree {
@@ -234,7 +251,8 @@
     </style>
 </head>
 <body>
-<div id="scene">
+<div class="bg-blur"></div>
+<div id="scene" class="shadow">
     <div id="introduction"></div>
     <div id="guide">
         <img class="interationMent" src="../images/daytime/DayTime_InterationMent.png" width="328" height="96"/>
@@ -245,7 +263,7 @@
     </div>
 
 </div>
-
+<script type="text/javascript" src="../header.js"></script>
 <script>
     const scene = document.getElementById('scene')
     const guide = document.getElementById('guide')
