@@ -1,3 +1,22 @@
+import {preloading, onReady, setVisible} from "./utility.js";
+
+try {
+    let imageList = []
+    const imagePath = '/images/main'
+    const second = ['/bg', '/cloud', '/sun']
+    for(let i = 0 ; i < 18 ; i++){
+        imageList.push(imagePath + second[parseInt(i / 6)] + '/' + (i % 6 + 1) +'.png')
+    }
+    imageList = [...imageList, imagePath + '/button_artwork.png', imagePath + '/text_guide.png']
+    await preloading(imageList)
+    onReady(function() {
+        setVisible('.scene', true);
+        setVisible('.loading-screen', false);
+    });
+} catch (e) {
+    console.log(e)
+}
+
 let currentStep = 0
 const hrefByStep = ["/dawn", "/daytime", "/morning", "/sunset", "/evening", "/midnight"]
 let isMouseDown = false;

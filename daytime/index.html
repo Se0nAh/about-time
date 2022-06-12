@@ -5,6 +5,7 @@
     <title>Daytime - ABOUT TIME</title>
     <link rel="stylesheet" type="text/css" href="../header.css"/>
     <link rel="stylesheet" type="text/css" href="../defaultStyle.css"/>
+    <link rel="stylesheet" type="text/css" href="../loading.css"/>
     <style>
         body {
             width: 100%;
@@ -62,15 +63,15 @@
             background-image: url("../images/daytime/DayTime_Title.png");
             background-size: contain;
             background-repeat: no-repeat;
-            animation: fadeout 2.5s forwards;
+            /*animation: fadeout 2.5s forwards;*/
         }
 
         #guide {
             width: 100%;
             position: absolute;
-            animation: fadein 1.5s forwards;
+            /*animation: fadein 1.5s forwards;*/
             opacity: 0;
-            animation-delay: 2s;
+            /*animation-delay: 2s;*/
             transition: opacity;
             z-index: 30;
         }
@@ -251,6 +252,10 @@
     </style>
 </head>
 <body>
+<div class="loading-screen">
+    <div class="loading-text">
+    </div>
+</div>
 <div class="bg-blur"></div>
 <div id="scene" class="shadow">
     <div id="introduction"></div>
@@ -264,72 +269,6 @@
 
 </div>
 <script type="text/javascript" src="../header.js"></script>
-<script>
-    const scene = document.getElementById('scene')
-    const guide = document.getElementById('guide')
-    const petalGroup = document.getElementById('petal-group')
-    const petalPositionXRange = [-50, 99]
-    const toggleAnimationForExistsPetals = false
-    const createPetal = () => {
-        const newPetal = document.createElement('div')
-        newPetal.className = `petal defaultAnimation image${getRandomIntInclusive(1, 2)} fall-infinite`
-
-        newPetal.style.left = getRandomIntInclusive(0, 99) + "%"
-        console.log(`${getRandomIntInclusive(0, 18) / 2}s ${getRandomIntInclusive(0, 6) / 3}s`)
-        const fallingDelay = getRandomIntInclusive(0, 40) / 4
-        const shakeDelay = getRandomIntInclusive(1, 20) / 10
-        newPetal.style.animationDelay = `${fallingDelay}s, ${shakeDelay}s`
-        return newPetal
-    }
-
-    for (let i = 0; i < 20; i++) {
-        petalGroup.append(createPetal(true))
-    }
-
-    function getRandomIntInclusive(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min; //최댓값도 포함, 최솟값도 포함
-    }
-
-
-    const createNewWindyPetal = () => {
-        const left = getRandomIntInclusive(petalPositionXRange[0], petalPositionXRange[1])
-        const newPetal = document.createElement('div')
-        newPetal.className = `petal windyAnimation image${getRandomIntInclusive(1, 2)}`
-        // newPetal.style.backgroundColor = "red"
-        newPetal.style.left = left + "%"
-        return newPetal
-    }
-
-    let isWindy = false
-    let createPetalTimer
-    const blowWind = (e) => {
-        if (e.keyCode === 32) {
-            if (!isWindy) {
-                guide.style.animation = "fadeout 1s forwards"
-                guide.style.animationDelay = "0s"
-                isWindy = true
-                createPetalTimer = setInterval(() => {
-                    scene.append(createNewWindyPetal())
-                }, 150)
-                petalGroup.childNodes.forEach(item => console.log(item.nodeValue))
-            }
-        }
-    }
-    const stopWind = (e) => {
-        if (e.keyCode === 32) {
-            if (!isWindy) return
-            isWindy = false
-            clearInterval(createPetalTimer)
-        }
-    }
-
-
-    window.addEventListener('keydown', blowWind)
-
-    window.addEventListener('keyup', stopWind)
-
-</script>
+<script type="module" src="./daytime.js"></script>
 </body>
 </html>

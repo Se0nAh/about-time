@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Sunset - ABOUT TIME</title>
     <link rel="stylesheet" type="text/css" href="../header.css"/>
+    <link rel="stylesheet" type="text/css" href="../loading.css"/>
     <link rel="stylesheet" type="text/css" href="../defaultStyle.css"/>
     <style>
         body {
@@ -46,17 +47,17 @@
             background-image: url("../images/sunset/Sunset_Title.png");
             background-size: contain;
             background-repeat: no-repeat;
-            animation: fadeout 3s forwards;
+            /*animation: fadeout 3s forwards;*/
         }
 
         #guide {
             width: 100%;
             height: 100%;
             position: absolute;
-            animation: fadein, fadeout;
-            animation-duration: 1.5s, 2s;
-            animation-delay: 2s, 8s;
-            animation-fill-mode: forwards, forwards;
+            /*animation: fadein, fadeout;*/
+            /*animation-duration: 1.5s, 2s;*/
+            /*animation-delay: 2s, 8s;*/
+            /*animation-fill-mode: forwards, forwards;*/
             opacity: 0;
             transition: opacity;
             z-index: 30;
@@ -120,6 +121,11 @@
 
 </head>
 <body>
+<div class="loading-screen">
+    <div class="loading-text">
+    </div>
+</div>
+<!--<div style="position: absolute;background-color: rgba(100,100,100,1); width: 100vw; height: 100vh; z-index: 90;" id="loading"></div>-->
 <div class="bg-blur"></div>
 <div id="scene" class="shadow">
     <div id="introduction"></div>
@@ -136,6 +142,6 @@
     </div>
 </div>
 <script type="text/javascript" src="../header.js"></script>
-<script type="text/javascript" src="sunset.js"></script>
+<script type="module" src="sunset.js"></script>
 </body>
 </html>

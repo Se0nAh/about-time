@@ -5,6 +5,7 @@
     <title>Photo Booth - ABOUT TIME</title>
     <link rel="stylesheet" type="text/css" href="../header.css"/>
     <link rel="stylesheet" type="text/css" href="../defaultStyle.css"/>
+    <link rel="stylesheet" type="text/css" href="../loading.css"/>
     <style>
         :root {
             --booth-height: 447px;
@@ -63,6 +64,10 @@
 
 </head>
 <body>
+<div class="loading-screen">
+    <div class="loading-text">
+    </div>
+</div>
 <div class="title">
     <img src="../images/photo-booth/title.png" alt="photo booth"/>
 </div>
@@ -121,8 +126,7 @@
         <img src="../images/photo-booth/button-camera.png" width="52" height="52" alt="촬영 버튼"/>
     </button>
 </div>
-<script src="./photo-booth.js"></script>
-
+<script type="module" src="./photo-booth.js"></script>
 <script type="text/javascript" src="../header.js"></script>
 </body>
 </html>

@@ -1,10 +1,33 @@
+import {preloading, onReady, setVisible} from "../utility.js";
+
+try {
+    await preloading([
+        "../images/sunset/background.png",
+        "../images/sunset/Sunset_Text.png",
+        "../images/sunset/Sunset_Title.png",
+        "../images/gallery/gallery-sunset.png",
+        "../images/sunset/moon.png",
+        "../images/sunset/tree.png",
+        "../images/sunset/cloud1.png",
+        "../images/sunset/cloud2.png"
+    ])
+} catch (e) {
+    console.log(e)
+}
+onReady(function() {
+    document.getElementById('introduction').style.animation = 'fadeout 3s forwards';
+    document.getElementById('guide').style.animation = 'fadein, fadeout';
+    document.getElementById('guide').style.animationDuration = ' 1.5s, 2s';
+    document.getElementById('guide').style.animationDelay = '2s, 8s';
+    document.getElementById('guide').style.animationFillMode = 'forwards, forwards';
+    setVisible('#scene', true);
+    setVisible('.loading-screen', false);
+});
 const scene = document.getElementById('scene')
 const bg = document.getElementById('background')
 const cloud1 = document.getElementById('cloud1')
 const cloud2 = document.getElementById('cloud2')
 const tree = document.getElementById('tree')
-console.log(scene)
-
 window.addEventListener('mousemove', (e) => {
     const p = scene.offsetWidth * scene.offsetHeight / 360
     scene.style.filter = `hue-rotate(${(e.clientX - scene.offsetLeft) * (e.clientY - scene.offsetTop) / p}deg)`

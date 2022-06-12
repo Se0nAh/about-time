@@ -6,9 +6,14 @@
     <link rel="stylesheet" type="text/css" href="defaultStyle.css"/>
     <link rel="stylesheet" type="text/css" href="main.css"/>
     <link rel="stylesheet" type="text/css" href="header.css"/>
+    <link rel="stylesheet" type="text/css" href="loading.css"/>
     <style></style>
 </head>
 <body>
+<div class="loading-screen">
+    <div class="loading-text">
+    </div>
+</div>
 <div class="scene">
     <div class="cloud-container">
         <div class="cloud"></div>
@@ -25,14 +30,14 @@
     <div class="guide">
         <img
             class="introduction"
-            src="images/main/00%20main_interation%20text.png"
+            src="images/main/text_guide.png"
             width="616" height="56.5"
             alt="해를 움직여 원하는 시간을 선택하세요"
         />
         <a class="artwork-link" href="/dawn">
             <img
                 class="pulse"
-                src="images/main/00%20main_artwork%20button.png"
+                src="images/main/button_artwork.png"
                 width="392" height="392"
                 alt="Click here to see the artwork"
             />
@@ -40,6 +45,7 @@
     </div>
 </div>
 <script type="text/javascript" src="header.js"></script>
-<script type="text/javascript" src="main.js"></script>
+<!--<script type="module" src="utility.js"></script>-->
+<script type="module" src="main.js"></script>
 </body>
 </html>

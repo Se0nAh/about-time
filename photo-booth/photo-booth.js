@@ -1,4 +1,24 @@
 // webcam 관련 코드: https://velog.io/@davelee/browser%EC%97%90%EC%84%9C-webcam-%EC%9D%B4%EC%9A%A9%ED%95%98%EA%B8%B0
+import {preloading, onReady, setVisible} from "../utility.js";
+
+try {
+    await preloading([
+        "../images/photo-booth/frame-dawn.png",
+        "../images/photo-booth/frame-morning.png",
+        "../images/photo-booth/frame-daytime.png",
+        "../images/photo-booth/frame-sunset.png",
+        "../images/photo-booth/frame-evening.png",
+        "../images/photo-booth/frame-midnight.png",
+    ])
+} catch (e) {
+    console.log(e)
+}
+
+onReady(function() {
+    new App();
+    setVisible('.loading-screen', false);
+});
+
 const currentFrameImage = new Image()
 currentFrameImage.title = ""
 const canvas = document.querySelector("#mirrored");
@@ -13,9 +33,9 @@ downloadButton.addEventListener('click', function() {
     link.remove();
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    new App();
-})
+// document.addEventListener("DOMContentLoaded", () => {
+//     new App();
+// })
 
 class App {
     constructor() {

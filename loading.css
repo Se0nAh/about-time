@@ -1,0 +1,23 @@
+.loading-screen {
+    position: fixed;
+    background-color: #232525;
+    background-image: url("./images/loading_background.png");
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    z-index: 90;
+}
+.loading-text {
+    width: 237px;
+    height: 121px;
+    background-image: url("./images/loading.png");
+    background-position: left center;
+    background-size: 1422px 121px;
+    margin: 300px auto;
+    animation: play 1s steps(6) infinite;
+}
+@keyframes play {
+    100% {
+        background-position: -1422px;
+    }
+}
