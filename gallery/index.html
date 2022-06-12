@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery - ABOUT TIME</title>
+    <link rel="stylesheet" type="text/css" href="../header.css"/>
+    <link rel="stylesheet" type="text/css" href="../defaultStyle.css"/>
+    <style>
+
+        .title {
+            margin: 70px auto 0 auto;
+            text-align: center;
+        }
+        .gallery-container {
+            color: #56676d;
+            margin: 80px auto;
+            width: 920px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-column-gap: 75px;
+            grid-row-gap: 80px;
+            display: grid;
+        }
+
+        .artwork-number {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .artwork-image {
+            outline: 1px #56676d solid;
+            outline-offset: 4px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .artwork-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+        .artwork-title:before {
+            content:"○";
+            margin-right: 4px;
+            font-weight: 600;
+        }
+
+        .artwork-artist {
+            font-size: 16px;
+            font-weight: 600;
+            padding-bottom: 4px;
+            border-bottom: 1px #56676d solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <img src="../images/gallery/title.png" alt="photo booth"/>
+    </div>
+    <div class="gallery-container">
+        <div class="artwork">
+            <div class="artwork-number">
+                01
+            </div>
+            <img class="artwork-image" alt="dawn" src="../images/gallery/gallery-dawn.png"/>
+            <div class="artwork-title">DAWN</div>
+            <div class="artwork-artist">Sa Eunwoo</div>
+            <p class="artwork-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae tempor lorem, in ornare mi. Nulla fringilla, mi eu pharetra dictum, lectus velit rutrum eros, quis sollicitudin libero mauris eu nisl.</p>
+        </div>
+        <div class="artwork">
+            <div class="artwork-number">
+                02
+            </div>
+            <img class="artwork-image" alt="morning" src="../images/gallery/gallery-morning.png"/>
+            <div class="artwork-title">MORNING</div>
+            <div class="artwork-artist">Choi Seoyoon</div>
+            <p class="artwork-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae tempor lorem, in ornare mi. Nulla fringilla, mi eu pharetra dictum, lectus velit rutrum eros, quis sollicitudin libero mauris eu nisl.</p>
+        </div>
+        <div class="artwork">
+            <div class="artwork-number">
+                03
+            </div>
+            <img class="artwork-image" alt="daytime" src="../images/gallery/gallery-daytime.png"/>
+            <div class="artwork-title">DAYTIME</div>
+            <div class="artwork-artist">Sa Eunwoo</div>
+            <p class="artwork-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae tempor lorem, in ornare mi. Nulla fringilla, mi eu pharetra dictum, lectus velit rutrum eros, quis sollicitudin libero mauris eu nisl.</p>
+        </div>
+        <div class="artwork">
+            <div class="artwork-number">
+                04
+            </div>
+            <img class="artwork-image" alt="sunset" src="../images/gallery/gallery-sunset.png"/>
+            <div class="artwork-title">SUNSET</div>
+            <div class="artwork-artist">Choi Seoyoon</div>
+            <p class="artwork-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae tempor lorem, in ornare mi. Nulla fringilla, mi eu pharetra dictum, lectus velit rutrum eros, quis sollicitudin libero mauris eu nisl.</p>
+        </div>
+        <div class="artwork">
+            <div class="artwork-number">
+                05
+            </div>
+            <img class="artwork-image" alt="evening" src="../images/gallery/gallery-evening.png"/>
+            <div class="artwork-title">EVENING</div>
+            <div class="artwork-artist">Choi Seoyoon</div>
+            <p class="artwork-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae tempor lorem, in ornare mi. Nulla fringilla, mi eu pharetra dictum, lectus velit rutrum eros, quis sollicitudin libero mauris eu nisl.</p>
+        </div>
+        <div class="artwork">
+            <div class="artwork-number">
+                06
+            </div>
+            <img class="artwork-image" alt="midnight" src="../images/gallery/gallery-midnight.png"/>
+            <div class="artwork-title">MIDNIGHT</div>
+            <div class="artwork-artist">Sa Eunwoo</div>
+            <p class="artwork-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae tempor lorem, in ornare mi. Nulla fringilla, mi eu pharetra dictum, lectus velit rutrum eros, quis sollicitudin libero mauris eu nisl.</p>
+        </div>
+    </div>
+
+<script type="text/javascript" src="../header.js"></script>
+</body>
+</html>
