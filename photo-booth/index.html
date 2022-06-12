@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>photo booth</title>
+    <link rel="stylesheet" type="text/css" href="../header.css"/>
+    <link rel="stylesheet" type="text/css" href="../defaultStyle.css"/>
+    <style>
+        :root {
+            --booth-height: 477px;
+        }
+
+        .title {
+            margin: 70px auto 0 auto;
+            text-align: center;
+        }
+
+        .booth {
+            width: 1080px;
+            margin: 50px auto;
+            display: flex;
+        }
+
+        .frame-container {
+            flex: 1;
+            height: var(--booth-height);
+            /*overflow-y: scroll;*/
+            /*box-shadow: inset 0 -15px 15px -15px rgb(0 0 0 / 0.45);*/
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        .frame-option {
+            /*height: 10%;*/
+            box-sizing: border-box;
+            width: 100%;
+            margin-bottom: 15px;
+            border: 3px #56676d solid;
+            display: block;
+        }
+
+        /*.frame-option:last-child {*/
+        /*    margin-bottom: 0;*/
+        /*}*/
+
+        #videoElement, #mirrored {
+            width: auto;
+            height: var(--booth-height);
+            aspect-ratio: 4 / 3;
+            background-color: #666;
+            display: inline-block;
+            border: 3px #56676d solid;
+            /*margin-top: 50px;*/
+            /*margin-left: auto;*/
+            /*margin-right: auto;*/
+
+            margin: 0 20px;
+        }
+
+        #videoElement {
+            display: none;
+        }
+        .button-section {
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+<div class="title">
+    <img src="../images/photo-booth/title.png" alt="photo booth"/>
+</div>
+<div class="booth">
+    <div class="frame-container">
+        <a href="#dawn">
+            <img
+                    class="frame-option"
+                    src="../images/photo-booth/frame-dawn.png"
+                    alt="프레임 - 낮"
+            />
+        </a>
+        <a href="#morning">
+            <img
+                    class="frame-option"
+                    src="../images/photo-booth/frame-morning.png"
+                    alt="프레임 - 아침"
+            />
+        </a>
+        <a href="#daytime">
+            <img
+                    class="frame-option"
+                    src="../images/photo-booth/frame-daytime.png"
+                    alt="프레임 - 낮"
+            />
+        </a>
+    </div>
+    <video autoplay="true" id="videoElement"></video>
+    <canvas class="canvas" id="mirrored"></canvas>
+    <div class="frame-container">
+        <a href="#sunset">
+            <img
+                    class="frame-option"
+                    src="../images/photo-booth/frame-sunset.png"
+                    alt="프레임 - 노을"
+            />
+        </a>
+        <a href="#evening">
+            <img
+                    class="frame-option"
+                    src="../images/photo-booth/frame-evening.png"
+                    alt="프레임 - 저녁"
+            />
+        </a>
+        <a href="#midnight">
+            <img
+                class="frame-option"
+                src="../images/photo-booth/frame-midnight.png"
+                alt="프레임 - 밤"
+            />
+        </a>
+    </div>
+</div>
+<div class="button-section">
+    <button id="camera-button">
+        <img src="../images/photo-booth/button-camera.png" width="52" height="52" alt="촬영 버튼"/>
+    </button>
+</div>
+<script src="./photo-booth.js"></script>
+
+<script type="text/javascript" src="../header.js"></script>
+</body>
+</html>
