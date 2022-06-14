@@ -1,11 +1,34 @@
 body {
     margin: 0;
+    width: 100vw;
     height: 100vh;
-    background-image: url("images/main/bg/1.png");
-    background-position: center;
+    background-image: url("images/main/background.png");
+    background-position: left center;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
-    transition: background-image 0.3s ease-in-out;
+    background-size: calc(100vw * 6) 100vh;
+}
+.background {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    /*background-color: red;*/
+    background-image: url("images/main/background.png");
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: calc(100vw * 6) 100vh;
+}
+
+.fade-in {
+    animation: fade-in 0.3s ease-in-out forwards;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .scene {
@@ -21,14 +44,14 @@ body {
 
 .cloud {
     margin: 80px auto;
-    width: 1406px;
-    height: 388px;
+    width: 1407px;
+    height: 385px;
     /*right: 0;*/
-    background-image: url("images/main/cloud/1.png");
-    background-position: center;
+    background-image: url("images/main/cloud.png");
+    background-position: 0;
     background-repeat: no-repeat;
-    background-size: contain;
-    transition: background-image 0.3s ease-in-out;
+    background-size: 8442px 385px;
+    transition: background 0.3s ease-in-out;
 }
 
 .guide {
@@ -89,15 +112,15 @@ body {
 .sun-for-display {
     position: absolute;
     width: 160px;
-    height: 160px;
+    height: 162px;
     left: -80px;
     top: -80px;
     transform: scaleX(0.83333);
     transition: background-image 0.3s ease-in-out;
-    background-image: url("images/main/sun/1.png");
-    background-position: center;
+    background-image: url("images/main/sun.png");
+    background-position: left center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 969px 162px;
 }
 .sun-for-interact
 {

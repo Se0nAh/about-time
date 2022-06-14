@@ -3,11 +3,13 @@ import {preloading, onReady, setVisible} from "./utility.js";
 try {
     let imageList = []
     const imagePath = '/images/main'
-    const second = ['/bg', '/cloud', '/sun']
-    for(let i = 0 ; i < 18 ; i++){
-        imageList.push(imagePath + second[parseInt(i / 6)] + '/' + (i % 6 + 1) +'.png')
-    }
-    imageList = [...imageList, imagePath + '/button_artwork.png', imagePath + '/text_guide.png']
+    imageList = [
+        imagePath + '/background.png',
+        imagePath + '/sun.png',
+        imagePath + '/cloud.png',
+        imagePath + '/button_artwork.png',
+        imagePath + '/text_guide.png'
+    ]
     await preloading(imageList)
     onReady(function() {
         setVisible('.scene', true);
@@ -16,12 +18,13 @@ try {
 } catch (e) {
     console.log(e)
 }
-
+let previousStep = 0
 let currentStep = 0
 const hrefByStep = ["/dawn", "/daytime", "/morning", "/sunset", "/evening", "/night"]
 let isMouseDown = false;
 const mainScene = document.querySelector(".scene");
-const mainBg = document.querySelector("body");
+const mainBg = document.querySelector(".background");
+const secondBg = document.querySelector("body");
 let cloud = document.querySelector(".cloud");
 let center = { x: mainScene.clientWidth/2, y: mainScene.clientHeight - 100 };
 
@@ -45,10 +48,13 @@ const sectionOffset = 180 / sectionCount
 const startDegree = -360
 const endDegree = -180
 
+mainBg.addEventListener('animationend',  function () {
+    mainBg.classList.remove('fade-in')
+    secondBg.style.backgroundPosition = -1281*previousStep+'px'
+})
 sunForInteract.onmousedown = function(e) {
     sunAreaForDisplay.style.transition = null;
     sunAreaForInteract.style.transition = null;
-
 
     isMouseDown = true;
     let currentDeg
@@ -59,10 +65,14 @@ sunForInteract.onmousedown = function(e) {
         sunAreaForInteract.style.transform = 'rotate(' + currentDeg + 'deg) scaleX(1.2)';
         const stepByDegree = parseInt((currentDeg - startDegree + 18) / sectionOffset)
         if (stepByDegree !== currentStep) {
+            previousStep = currentStep
             currentStep = stepByDegree
-            sunForDisplay.style.backgroundImage = `url("images/main/sun/${currentStep+1}.png")`
-            mainBg.style.backgroundImage = `url("images/main/bg/${currentStep+1}.png")`
-            cloud.style.backgroundImage = `url("images/main/cloud/${currentStep+1}.png")`
+            cloud.style.backgroundPosition = -cloud.clientWidth*currentStep+'px'
+            sunForDisplay.style.backgroundPosition = -sunForDisplay.clientWidth*currentStep+'px'
+            mainBg.style.backgroundPosition = -window.innerWidth*currentStep+'px'
+
+            mainBg.classList.add('fade-in')
+            secondBg.style.backgroundPosition = -window.innerWidth*previousStep+'px'
             artworkLinkButton.href = hrefByStep[currentStep]
         }
     }
@@ -70,11 +80,9 @@ sunForInteract.onmousedown = function(e) {
     document.addEventListener('mousemove', onMouseMove);
 
     document.onmouseup = function() {
-        console.log(currentDeg, "onmouseup")
         sunAreaForDisplay.style.transition = 'transform 0.5s'
         sunAreaForInteract.style.transition = 'transform 0.5s'
         let temp = currentStep * sectionOffset
-        console.log(currentStep)
         currentDeg = startDegree + temp
         sunAreaForDisplay.style.transform = 'rotate(' + currentDeg + 'deg) scaleX(1.2)';
         sunAreaForInteract.style.transform = 'rotate(' + currentDeg + 'deg) scaleX(1.2)';
