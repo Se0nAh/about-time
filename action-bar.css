@@ -7,7 +7,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    min-width: 80px;
+    height: 100vh;
 }
 
 .action-section-l {
@@ -25,7 +26,17 @@
     margin-bottom: 20px;
     cursor: pointer;
 }
+
+
+.button-prev, .button-next{
+    margin-top: 150px;
+}
+
 .action-button-img {
     width: 32px;
     height: 32px;
+}
+.action-button-img-lg {
+    width: 64px;
+    height: 64px;
 }

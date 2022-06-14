@@ -7,6 +7,15 @@ const audioFilePath = {
     'night': '../audio/06. 밤_kida bgm factory-지금, 별.mp3',
 }
 
+const pageSequence = {
+    'dawn': 0,
+    'morning': 1,
+    'daytime': 2,
+    'sunset': 3,
+    'evening': 4,
+    'night': 5,
+}
+
 function getPageName(pathName) {
     if (pathName.includes('dawn')) return 'dawn';
     if (pathName.includes('morning')) return 'morning';
@@ -18,7 +27,6 @@ function getPageName(pathName) {
 }
 
 const pageName = getPageName(window.location.pathname)
-console.log(pageName, '???')
 const bodySection = document.getElementsByTagName("body")[0];
 bodySection.insertAdjacentHTML('beforeend', `
     <div class="action-section action-section-l">
@@ -28,6 +36,9 @@ bodySection.insertAdjacentHTML('beforeend', `
         <div class="action-button button-sound">
             <img class="action-button-img" src="../images/icon-sound.png"/>
         </div>
+        <div class="action-button button-prev">
+            <img class="action-button-img-lg" src="../images/left-arrow.png"/>
+        </div>
     </div>
     <div class="action-section action-section-r">
         <div class="action-button button-close">
@@ -35,6 +46,9 @@ bodySection.insertAdjacentHTML('beforeend', `
         </div>
         <div class="action-button button-restart">
             <img class="action-button-img" src="../images/icon-restart.png"/>
+        </div>
+        <div class="action-button button-next">
+             <img class="action-button-img-lg" src="../images/right-arrow.png"/>
         </div>
     </div>
     `)
@@ -52,6 +66,8 @@ audio.volume = 0.6;
 const photoButton = document.querySelector(".button-photo");
 const closeButton = document.querySelector(".button-close");
 const restartButton = document.querySelector(".button-restart");
+const prevPageButton = document.querySelector(".button-prev");
+const nextPageButton = document.querySelector(".button-next");
 
 soundButton.onclick = function () {
     if (isPlayingAudio) {
@@ -73,4 +89,19 @@ closeButton.onclick = function () {
 }
 restartButton.onclick = function () {
     window.location.reload();
+}
+prevPageButton.onclick = function () {
+    let targetIndex = pageSequence[pageName] - 1
+    if (targetIndex < 0) targetIndex = 5
+    const target = Object.keys(pageSequence)[targetIndex]
+    console.log(targetIndex, target)
+
+    window.location.href = `/${target}`
+}
+nextPageButton.onclick = function () {
+    let targetIndex = (pageSequence[pageName] + 1) % 6
+    const target = Object.keys(pageSequence)[targetIndex]
+    console.log(targetIndex, target)
+
+    window.location.href = `/${target}`
 }
