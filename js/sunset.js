@@ -1,4 +1,5 @@
 import {preloading, onReady, setVisible} from "./utility.js";
+const audio = new Audio('../audio/04. 노을_WINYELLE - AUTUMN STROLL.mp3');
 
 try {
     await preloading([
@@ -22,6 +23,8 @@ onReady(function() {
     document.getElementById('guide').style.animationFillMode = 'forwards, forwards';
     setVisible('#scene', true);
     setVisible('.loading-screen', false);
+    audio.play();
+    audio.volume = 0.6;
 });
 const scene = document.getElementById('scene')
 const bg = document.getElementById('background')

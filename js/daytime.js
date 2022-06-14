@@ -1,4 +1,5 @@
 import {preloading, onReady, setVisible} from "./utility.js";
+const audio = new Audio('../audio/03. 낮_Ujabes - Siamese cat (샴).mp3');
 
 try {
     await preloading([
@@ -19,6 +20,8 @@ onReady(function() {
     document.getElementById('guide').style.animationDelay = '2s';
     setVisible('#scene', true);
     setVisible('.loading-screen', false);
+    audio.play();
+    audio.volume = 0.6;
 });
 const scene = document.getElementById('scene')
 const guide = document.getElementById('guide')
