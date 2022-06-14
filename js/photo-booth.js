@@ -1,4 +1,5 @@
 // webcam 관련 코드: https://velog.io/@davelee/browser%EC%97%90%EC%84%9C-webcam-%EC%9D%B4%EC%9A%A9%ED%95%98%EA%B8%B0
+// flash effect: https://codepen.io/cstein/pen/VaJPYQ
 import {preloading, onReady, setVisible} from "./utility.js";
 
 try {
@@ -23,8 +24,28 @@ const currentFrameImage = new Image()
 currentFrameImage.title = ""
 const canvas = document.querySelector("#mirrored");
 const video = document.querySelector("#videoElement");
-const downloadButton = document.getElementById("camera-button")
-
+const flashLight = document.querySelector(".flash-light");
+const cameraButton = document.getElementById("button-camera")
+const downloadButton = document.getElementById("button-download")
+downloadButton.style.display = "none"
+// const restartButton = document.getElementById("camera-button")
+let isShoot = false
+cameraButton.addEventListener('click', function () {
+    if (isShoot) {
+        flashLight.classList.remove("flash")
+        cameraButton.querySelector('img').src = "../images/photo-booth/button-camera.png"
+        downloadButton.style.display = "none"
+        video.play()
+        isShoot = false
+    } else {
+        flashLight.classList.add("flash")
+        video.pause()
+        cameraButton.querySelector('img').src = "../images/photo-booth/button-restart.png"
+        downloadButton.style.display = "inline"
+        isShoot = true
+    }
+    // console.log(video)
+})
 downloadButton.addEventListener('click', function() {
     const link = document.createElement('a');
     link.download = `${currentFrameImage.title}.png`;
@@ -77,7 +98,6 @@ class App {
 
         canvas.width = video.videoWidth;
         canvas.height = video.videoHeight;
-
         const ctx = canvas.getContext('2d');
         ctx.translate(video.videoWidth, 0);
         ctx.scale(-1,1);
