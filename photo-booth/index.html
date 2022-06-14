@@ -9,6 +9,7 @@
     <style>
         :root {
             --booth-height: 447px;
+            --main-color: #56676d;
         }
 
         .title {
@@ -29,27 +30,35 @@
             /*box-shadow: inset 0 -15px 15px -15px rgb(0 0 0 / 0.45);*/
         }
 
-        ::-webkit-scrollbar {
-            display: none;
-        }
 
         .frame-option {
             /*height: 10%;*/
             box-sizing: border-box;
             width: 100%;
             margin-bottom: 15px;
-            border: 3px #56676d solid;
+            border: 3px  #cccccc solid;
             display: block;
+            filter: grayscale(1);
+            transition: all 0.3s;
         }
 
+        .frame-option:hover {
+            transform: scale(1.1);
+            filter: grayscale(0);
+        }
+
+        .frame-option-selected {
+            filter: grayscale(0);
+            border-color: var(--main-color);
+        }
 
         #videoElement, #mirrored {
             width: auto;
             height: var(--booth-height);
             aspect-ratio: 4 / 3;
-            background-color: #56676d;
+            background-color: var(--main-color);
             display: inline-block;
-            border: 3px #56676d solid;
+            border: 3px var(--main-color) solid;
 
             margin: 0 20px;
         }
@@ -75,21 +84,21 @@
     <div class="frame-container">
         <a href="#dawn">
             <img
-                    class="frame-option"
+                    class="frame-option dawn"
                     src="../images/photo-booth/frame-dawn.png"
-                    alt="프레임 - 낮"
+                    alt="프레임 - 새벽"
             />
         </a>
         <a href="#morning">
             <img
-                    class="frame-option"
+                    class="frame-option morning"
                     src="../images/photo-booth/frame-morning.png"
                     alt="프레임 - 아침"
             />
         </a>
         <a href="#daytime">
             <img
-                    class="frame-option"
+                    class="frame-option daytime"
                     src="../images/photo-booth/frame-daytime.png"
                     alt="프레임 - 낮"
             />
@@ -100,21 +109,21 @@
     <div class="frame-container">
         <a href="#sunset">
             <img
-                    class="frame-option"
+                    class="frame-option sunset"
                     src="../images/photo-booth/frame-sunset.png"
                     alt="프레임 - 노을"
             />
         </a>
         <a href="#evening">
             <img
-                    class="frame-option"
+                    class="frame-option evening"
                     src="../images/photo-booth/frame-evening.png"
                     alt="프레임 - 저녁"
             />
         </a>
         <a href="#midnight">
             <img
-                class="frame-option"
+                class="frame-option midnight"
                 src="../images/photo-booth/frame-midnight.png"
                 alt="프레임 - 밤"
             />

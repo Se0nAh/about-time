@@ -33,9 +33,6 @@ downloadButton.addEventListener('click', function() {
     link.remove();
 });
 
-// document.addEventListener("DOMContentLoaded", () => {
-//     new App();
-// })
 
 class App {
     constructor() {
@@ -54,16 +51,24 @@ class App {
         if(location.hash && location.hash.length > 0) {
             const hashValue = location.hash.replace('#', '')
             currentFrameImage.src = `../images/photo-booth/frame-${hashValue}.png`
+            document.querySelector(`.${hashValue}`).classList.add('frame-option-selected')
+        } else {
+            location.hash = '#dawn'
+            currentFrameImage.src = `../images/photo-booth/frame-dawn.png`
+            document.querySelector('.dawn').classList.add('frame-option-selected')
         }
 
         video.addEventListener( "loadedmetadata", () => {
             window.requestAnimationFrame(this.draw.bind(this));
         });
 
-        window.addEventListener("hashchange", () => {
+        window.addEventListener("hashchange", (e) => {
+            const previousHashValue = e.oldURL.split('#')[1]
             const hashValue = location.hash.replace('#', '')
             currentFrameImage.src = `../images/photo-booth/frame-${hashValue}.png`
             currentFrameImage.title = hashValue
+            document.querySelector(`.${hashValue}`).classList.add('frame-option-selected')
+            document.querySelector(`.${previousHashValue}`).classList.remove('frame-option-selected')
         })
     }
 
