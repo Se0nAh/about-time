@@ -1,6 +1,4 @@
 import {preloading, onReady, setVisible} from "./utility.js";
-const audio = new Audio('../audio/01. 새벽_Ikson - Letter Home (Official).wav');
-
 try {
     await preloading([
         "../images/dawn/커튼1.png",
@@ -24,8 +22,6 @@ onReady(function() {
     document.getElementById('guide').style.animationDelay = '2s';
     setVisible('#scene', true);
     setVisible('.loading-screen', false);
-    audio.play();
-    audio.volume = 0.6;
 });
 const fixedSize = {
     width: 1280,

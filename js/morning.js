@@ -1,6 +1,4 @@
 import {preloading, onReady, setVisible} from "./utility.js";
-const audio = new Audio('../audio/02. 아침_ VoiceMessage - Black Sea.mp3');
-
 try {
     await preloading([
         "../images/morning/background.png",
@@ -25,8 +23,6 @@ onReady(function() {
     document.getElementById('guide').style.animationFillMode = 'forwards, forwards';
     setVisible('#scene', true);
     setVisible('.loading-screen', false);
-    audio.play();
-    audio.volume = 0.6;
 });
 let isDrawingComplete = false;
 let toastTimer
