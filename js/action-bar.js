@@ -36,8 +36,10 @@ bodySection.insertAdjacentHTML('beforeend', `
         <div class="action-button button-sound">
             <img class="action-button-img" src="../images/icon-sound.png"/>
         </div>
-        <div class="action-button button-prev">
-            <img class="action-button-img-lg" src="../images/left-arrow.png"/>
+        <div class="button-prev-section">
+            <div class="action-button button-prev">
+                <img class="action-button-img-lg" src="../images/left-arrow.png"/>
+            </div>
         </div>
     </div>
     <div class="action-section action-section-r">
@@ -47,8 +49,10 @@ bodySection.insertAdjacentHTML('beforeend', `
         <div class="action-button button-restart">
             <img class="action-button-img" src="../images/icon-restart.png"/>
         </div>
-        <div class="action-button button-next">
-             <img class="action-button-img-lg" src="../images/right-arrow.png"/>
+        <div class="button-next-section">
+            <div class="action-button button-next">
+                 <img class="action-button-img-lg" src="../images/right-arrow.png"/>
+            </div>
         </div>
     </div>
     `)

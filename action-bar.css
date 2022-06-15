@@ -1,6 +1,7 @@
 .action-section {
     box-sizing: border-box;
     padding-top: 30px;
+    padding-bottom: 30px;
     z-index: 80;
     position: fixed;
     top: 60px;
@@ -8,7 +9,7 @@
     flex-direction: column;
     align-items: center;
     min-width: 80px;
-    height: 100vh;
+    height: calc(100vh - 60px);
 }
 
 .action-section-l {
@@ -20,16 +21,28 @@
     padding-right: 20px;
 }
 .action-button {
-    width: fit-content;
-    height: fit-content;
+    min-width: 32px;
+    min-height: 32px;
     filter: drop-shadow(0 20px 10px rgb(0 0 0 / 0.03)) drop-shadow(0 4px 5px rgb(0 0 0 / 0.18));
     margin-bottom: 20px;
     cursor: pointer;
 }
 
+.button-next-section, .button-prev-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+}
+.button-next, .button-prev {
+    transition: transform 0.3s;
+}
 
-.button-prev, .button-next{
-    margin-top: 150px;
+.button-prev:hover{
+    transform: translateX(-15px);
+}
+.button-next:hover{
+    transform: translateX(15px);
 }
 
 .action-button-img {
