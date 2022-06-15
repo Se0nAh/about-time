@@ -50,7 +50,7 @@ const endDegree = -180
 
 mainBg.addEventListener('animationend',  function () {
     mainBg.classList.remove('fade-in')
-    secondBg.style.backgroundPosition = -1281*previousStep+'px'
+    secondBg.style.backgroundPositionX = -window.innerWidth*previousStep+'px'
 })
 sunForInteract.onmousedown = function(e) {
     sunAreaForDisplay.style.transition = null;
@@ -67,12 +67,12 @@ sunForInteract.onmousedown = function(e) {
         if (stepByDegree !== currentStep) {
             previousStep = currentStep
             currentStep = stepByDegree
-            cloud.style.backgroundPosition = -cloud.clientWidth*currentStep+'px'
-            sunForDisplay.style.backgroundPosition = -sunForDisplay.clientWidth*currentStep+'px'
-            mainBg.style.backgroundPosition = -window.innerWidth*currentStep+'px'
+            cloud.style.backgroundPositionX = -cloud.clientWidth*currentStep+'px'
+            sunForDisplay.style.backgroundPositionX = -sunForDisplay.clientWidth*currentStep+'px'
+            mainBg.style.backgroundPositionX = -window.innerWidth*currentStep+'px'
 
             mainBg.classList.add('fade-in')
-            secondBg.style.backgroundPosition = -window.innerWidth*previousStep+'px'
+            secondBg.style.backgroundPositionX = -window.innerWidth*previousStep+'px'
             artworkLinkButton.href = hrefByStep[currentStep]
         }
     }

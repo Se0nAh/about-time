@@ -63,12 +63,12 @@ body {
     bottom: -220px;
     margin: 0 auto;
     text-align: center;
-
     z-index: 30;
 }
 .introduction {
     display: block;
     margin: 10px auto;
+    pointer-events: none;
 }
 .artwork-link {
     display: block;
@@ -76,9 +76,6 @@ body {
     cursor: pointer;
     width: fit-content;
     height: fit-content;
-    /*position: absolute;*/
-    /*z-index: 30;*/
-
 }
 
 .cloud-container {
