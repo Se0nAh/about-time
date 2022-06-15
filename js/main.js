@@ -20,7 +20,7 @@ try {
 }
 let previousStep = 0
 let currentStep = 0
-const hrefByStep = ["/dawn", "/daytime", "/morning", "/sunset", "/evening", "/night"]
+const hrefByStep = ["/dawn", "/morning", "/daytime", "/sunset", "/evening", "/night"]
 let isMouseDown = false;
 const mainScene = document.querySelector(".scene");
 const mainBg = document.querySelector(".background");
