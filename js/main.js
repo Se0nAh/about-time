@@ -1,7 +1,7 @@
 import {preloading, onReady, setVisible} from "./utility.js";
 
 try {
-    let imageList = []
+    let imageList;
     const imagePath = '/images/main'
     imageList = [
         imagePath + '/background.png',
@@ -60,7 +60,11 @@ sunForInteract.onmousedown = function(e) {
     let currentDeg
     function onMouseMove(e) {
         let radian = Math.atan2(e.pageY - mainScene.offsetTop - center.y, e.pageX - mainScene.offsetLeft - center.x);
-        currentDeg = Math.max(Math.min(endDegree, (180 * radian / Math.PI -180)), startDegree-10)
+        let radianToDegree =  (180 * radian / Math.PI -180)
+        if(radianToDegree > -90 && radianToDegree < 0) currentDeg = startDegree
+        else {
+            currentDeg = Math.max(Math.min(endDegree, radianToDegree), startDegree-10)
+        }
         sunAreaForDisplay.style.transform = 'rotate(' + currentDeg + 'deg) scaleX(1.2)';
         sunAreaForInteract.style.transform = 'rotate(' + currentDeg + 'deg) scaleX(1.2)';
         const stepByDegree = parseInt((currentDeg - startDegree + 18) / sectionOffset)
