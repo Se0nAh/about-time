@@ -1,16 +1,8 @@
 const bodySection = document.getElementsByTagName("body")[0];
-const bgBlur = document.createElement('div')
 const header = document.createElement('header')
 const headerContent = document.createElement('div')
 header.className = "nav-container"
 headerContent.className = "nav-content"
-// header.style.cssText =
-// `
-//
-// `
-// headerContent.style.cssText = `
-//
-// `
 header.append(headerContent)
 const logo = document.createElement('a')
 logo.href = "/"
@@ -19,7 +11,6 @@ logoImg.src = "../images/logo-white.png"
 logoImg.width = 133.5
 logoImg.height = 15
 logo.append(logoImg)
-// logo.append(document.createElement('img'))
 
 headerContent.append(logo)
 headerContent.insertAdjacentHTML('beforeend', `
@@ -53,5 +44,5 @@ if (window.location.pathname.includes('photo-booth')
     logoImg.src = "../images/logo-white.png"
     document.documentElement.style.setProperty('--nav-background-color', 'rgba(255, 255, 255 , 0.3)');
     document.documentElement.style.setProperty('--nav-text-color', 'white');
-    header.style.textShadow = "rgba(0, 0, 0, 0.2) 1px 0 6px"
+    header.style.textShadow = "rgba(0, 0, 0, 0.3) 1px 0 6px"
 }

@@ -7,7 +7,7 @@
     position: fixed;
     z-index: 100;
     width: 100%;
-    padding: 20px;
+    padding: 15px 20px;
     background-color: var(--nav-background-color);
     filter: drop-shadow(0 20px 10px rgb(0 0 0 / 0.03)) drop-shadow(0 4px 5px rgb(0 0 0 / 0.18));
 }
@@ -20,14 +20,14 @@
 
 .nav-button {
     padding-left: 15px;
+    padding-right: 20px;
 }
-.nav-button:not(:last-child)::after {
-    content: "";
-    padding-left: 15px;
+.nav-button:not(:last-child) {
     border-right: 2px solid var(--nav-text-color);
+    /*border-spacing: ;*/
 }
 .nav-button-container {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 15px;
+    font-weight: 500;
     color: var(--nav-text-color);
 }
