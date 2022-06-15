@@ -9,4 +9,5 @@ try {
 }
 onReady(function() {
     setVisible('.loading-screen', false);
+    window.alert("준비 중인 작품입니다.");
 });
