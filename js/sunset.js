@@ -14,7 +14,7 @@ try {
 } catch (e) {
     console.log(e)
 }
-onReady(function() {
+onReady(function () {
     document.getElementById('introduction').style.animation = 'fadeout 3s forwards';
     document.getElementById('guide').style.animation = 'fadein, fadeout';
     document.getElementById('guide').style.animationDuration = ' 1.5s, 2s';
@@ -29,8 +29,12 @@ const cloud1 = document.getElementById('cloud1')
 const cloud2 = document.getElementById('cloud2')
 const tree = document.getElementById('tree')
 window.addEventListener('mousemove', (e) => {
-    const p = scene.offsetWidth * scene.offsetHeight / 360
-    scene.style.filter = `hue-rotate(${(e.clientX - scene.offsetLeft) * (e.clientY - scene.offsetTop) / p}deg)`
+    const p = scene.clientWidth / 2 * scene.clientHeight / 2 / 60
+
+    let mouseXForHueRotate = Math.min(Math.max(e.clientX, scene.offsetLeft), scene.offsetLeft + scene.clientWidth) - scene.offsetLeft - scene.offsetWidth / 2
+    let mouseYForHueRotate = Math.min(Math.max(e.clientY, scene.offsetTop), scene.offsetTop + scene.clientHeight) - scene.offsetTop - scene.offsetHeight / 2
+    scene.style.filter = `hue-rotate(${mouseXForHueRotate * mouseYForHueRotate / p}deg)`
+
 
     const offsetCenterX = e.clientX - scene.offsetLeft - scene.offsetWidth / 2
     const offsetCenterY = e.clientY - scene.offsetTop - scene.offsetHeight / 2
