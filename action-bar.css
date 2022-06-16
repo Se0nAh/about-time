@@ -32,11 +32,7 @@
 }
 
 .button-next-section, .button-prev-section {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    justify-content: center;
-    width: 100%;
+    margin-top: 150px;
 }
 .button-next, .button-prev {
     transition: transform 0.3s;

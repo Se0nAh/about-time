@@ -88,6 +88,8 @@ bodySection.insertAdjacentHTML('beforeend', `
         <div class="action-button button-restart">
             <img class="action-button-img" src="../images/icon-restart.png"/>
         </div>
+        <div class="action-button">
+        </div>
         <div class="button-next-section">
             <div class="action-button button-next">
                  <img class="action-button-img-lg" src="../images/right-arrow.png"/>
@@ -168,6 +170,15 @@ nextPageButton.onclick = function () {
 }
 
 const handleCloseDescriptionSection = function () {
+    if (descriptionVisible) {
+        descriptionVisible = false;
+        descriptionButton.classList.remove("button-description-clicked");
+        descriptionSection.style.bottom = "-100%"
+    }
+}
+
+
+const handleToggleDescriptionSection = function () {
     if (!descriptionVisible) {
         descriptionVisible = true;
         descriptionButton.classList.add("button-description-clicked");
@@ -179,5 +190,6 @@ const handleCloseDescriptionSection = function () {
     }
 }
 
-descriptionButton.onclick = handleCloseDescriptionSection;
+descriptionButton.onclick = handleToggleDescriptionSection;
 descriptionCloseButton.onclick = handleCloseDescriptionSection;
+artworkSection.addEventListener('mousedown', handleCloseDescriptionSection)
