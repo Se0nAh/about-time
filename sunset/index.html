@@ -107,16 +107,51 @@
         }
 
         #cloud1 {
-            left: -300px;
+            left: -500px;
+            position: absolute;
+            width: 1970px;
+            height: 100%;
+            background-image: url("../images/sunset/cloud1-2.png");
+            background-size: 1970px 100%;
+            background-repeat: repeat-x;
+            animation: scroll 240s linear infinite;
         }
 
         #cloud2 {
-            right: -150px;
+            left: -300px;
+            position: absolute;
+            width: 1970px;
+            height: 100%;
+            background-image: url("../images/sunset/cloud2-2.png");
+            background-size: 1970px 100%;
+            /*background-position-x: -150px;*/
+            background-repeat: repeat-x;
+            animation: scroll 80s linear infinite;
+        }
+
+        #cloud3 {
+            top: -550px;
+            position: absolute;
+            width: 1970px;
+            height: 100%;
+            background-image: url("../images/sunset/cloud2-2.png");
+            background-size: 1970px 100%;
+            background-repeat: repeat-x;
+            background-position-x: 700px;
+            animation: scroll 130s linear infinite;
         }
 
         #tree {
             z-index: 10;
             transform: scale(1.1);
+        }
+        @keyframes scroll {
+            0% {
+                background-position-x: 0;
+            }
+            100% {
+                background-position-x: 1970px;
+            }
         }
     </style>
 
@@ -136,10 +171,13 @@
     </div>
     <img src="../images/sunset/tree.png" id="tree" width="1280" height="720"/>
     <div id="cloud-container1">
-        <img src="../images/sunset/cloud1.png" id="cloud1" width="1280" height="720"/>
+        <div id="cloud1"></div>
     </div>
     <div id="cloud-container2">
-        <img src="../images/sunset/cloud2.png" id="cloud2" width="1280" height="720"/>
+        <div id="cloud2"></div>
+    </div>
+    <div id="cloud-container3">
+        <div id="cloud3"></div>
     </div>
 </div>
 <script type="text/javascript" src="../js/header.js"></script>
