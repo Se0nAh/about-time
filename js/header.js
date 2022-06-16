@@ -15,7 +15,7 @@ logo.append(logoImg)
 headerContent.append(logo)
 headerContent.insertAdjacentHTML('beforeend', `
          <div class="nav-button-container">
-            <a href="/artists" class="nav-button">ARTISTS</a>
+            <a href="/about" class="nav-button">ABOUT</a>
             <a href="/gallery" class="nav-button">GALLERY</a>
             <a href="/guest-book" class="nav-button">GUEST BOOK</a>
             <a href="/photo-booth" class="nav-button">PHOTO BOOTH</a>
@@ -35,7 +35,7 @@ headerSection.style.cssText = `
 console.log(window.location.pathname.includes('artworks'))
 if (window.location.pathname.includes('photo-booth')
     || window.location.pathname.includes('gallery')
-    || window.location.pathname.includes('artists')
+    || window.location.pathname.includes('about')
     || window.location.pathname.includes('guest-book')) {
     logoImg.src = "../images/logo-default.png"
     document.documentElement.style.setProperty('--nav-background-color', '#d9e5e9');
