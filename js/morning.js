@@ -32,7 +32,6 @@ const canvas = document.getElementById("canvas");
 canvas.style.marginLeft = 200 + "";
 canvas.width = 150;
 canvas.height = 160;
-console.log(canvas.width, canvas.height)
 let context = canvas.getContext("2d");
 
 const breadCanvas = document.createElement("canvas")
@@ -133,7 +132,6 @@ function start(event) {
         restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
         index += 1;
     }
-    console.log(restore_array);
 }
 
 function draw(event) {

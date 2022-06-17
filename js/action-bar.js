@@ -157,14 +157,12 @@ prevPageButton.onclick = function () {
     let targetIndex = pageSequence[pageName] - 1
     if (targetIndex < 0) targetIndex = 5
     const target = Object.keys(pageSequence)[targetIndex]
-    console.log(targetIndex, target)
 
     window.location.href = `/${target}`
 }
 nextPageButton.onclick = function () {
     let targetIndex = (pageSequence[pageName] + 1) % 6
     const target = Object.keys(pageSequence)[targetIndex]
-    console.log(targetIndex, target)
 
     window.location.href = `/${target}`
 }

@@ -31,8 +31,6 @@ headerSection.style.cssText = `
     height: ${header.clientHeight}px;
 `
 
-// console.log(window.location.pathname)
-console.log(window.location.pathname.includes('artworks'))
 if (window.location.pathname.includes('photo-booth')
     || window.location.pathname.includes('gallery')
     || window.location.pathname.includes('about')

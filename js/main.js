@@ -38,10 +38,6 @@ sunAreaForInteract.style.left = center.x - (sunAreaForInteract.clientWidth/2) + 
 sunAreaForInteract.style.top = center.y +'px';
 sunAreaForDisplay.style.left = center.x -( sunAreaForInteract.clientWidth/2) + 'px';
 sunAreaForDisplay.style.top = center.y +'px';
-console.log(sunAreaForInteract.style.left)
-
-console.log( center.x,center.y)
-
 
 const sectionCount = 5
 const sectionOffset = 180 / sectionCount

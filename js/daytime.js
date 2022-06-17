@@ -29,7 +29,6 @@ const createPetal = () => {
     newPetal.className = `petal defaultAnimation image${getRandomIntInclusive(1, 2)} fall-infinite`
 
     newPetal.style.left = getRandomIntInclusive(0, 99) + "%"
-    console.log(`${getRandomIntInclusive(0, 18) / 2}s ${getRandomIntInclusive(0, 6) / 3}s`)
     const fallingDelay = getRandomIntInclusive(0, 40) / 4
     const shakeDelay = getRandomIntInclusive(1, 20) / 10
     newPetal.style.animationDelay = `${fallingDelay}s, ${shakeDelay}s`
@@ -67,7 +66,6 @@ const blowWind = (e) => {
             createPetalTimer = setInterval(() => {
                 scene.append(createNewWindyPetal())
             }, 150)
-            petalGroup.childNodes.forEach(item => console.log(item.nodeValue))
         }
     }
 }
