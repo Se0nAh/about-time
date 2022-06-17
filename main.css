@@ -60,7 +60,7 @@ body {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -220px;
+    bottom: -200px;
     margin: 0 auto;
     text-align: center;
     z-index: 30;
@@ -134,7 +134,24 @@ body {
     width: 10px;
     height: 10px;
 }
+.artwork-link {
+    display: inline-block;
+}
 
+.artwork-title {
+    position: absolute;
+    bottom: 165px;
+    left: 0;
+    right: 0 ;
+    text-align: center;
+    font-family: "Bodoni MT", serif;
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 46px;
+    text-shadow: rgba(0, 0, 0, 0.3) 1px 0 6px;
+
+}
 
 .pulse {
     animation: pulse 1s infinite ease-in-out alternate;

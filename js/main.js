@@ -20,7 +20,8 @@ try {
 }
 let previousStep = 0
 let currentStep = 0
-const hrefByStep = ["/dawn", "/morning", "/daytime", "/sunset", "/evening", "/night"]
+const titleByStep = ["Dawn", "Morning", "Daytime", "Sunset", "Evening", "Night"]
+// const hrefByStep = ["/dawn", "/morning", "/daytime", "/sunset", "/evening", "/night"]
 let isMouseDown = false;
 const mainScene = document.querySelector(".scene");
 const mainBg = document.querySelector(".background");
@@ -33,6 +34,7 @@ let sunForDisplay = document.querySelector(".sun-for-display");
 let sunAreaForInteract = document.querySelector(".sun-area-for-interact");
 let sunAreaForDisplay = document.querySelector(".sun-area-for-display");
 let artworkLinkButton = document.querySelector(".artwork-link")
+let artworkTitle = document.querySelector(".artwork-title")
 
 sunAreaForInteract.style.left = center.x - (sunAreaForInteract.clientWidth/2) + 'px';
 sunAreaForInteract.style.top = center.y +'px';
@@ -73,7 +75,8 @@ sunForInteract.onmousedown = function(e) {
 
             mainBg.classList.add('fade-in')
             secondBg.style.backgroundPositionX = -window.innerWidth*previousStep+'px'
-            artworkLinkButton.href = hrefByStep[currentStep]
+            artworkLinkButton.href = `/${titleByStep[currentStep].toLowerCase()}`
+            artworkTitle.innerHTML = titleByStep[currentStep]
         }
     }
 
