@@ -25,7 +25,7 @@ const titleByStep = ["Dawn", "Morning", "Daytime", "Sunset", "Evening", "Night"]
 let isMouseDown = false;
 const mainScene = document.querySelector(".scene");
 const mainBg = document.querySelector(".background");
-const secondBg = document.querySelector("body");
+const secondBg = document.querySelector(".background-second");
 let cloud = document.querySelector(".cloud");
 let center = { x: mainScene.clientWidth/2, y: mainScene.clientHeight - 100 };
 
@@ -50,6 +50,19 @@ mainBg.addEventListener('animationend',  function () {
     mainBg.classList.remove('fade-in')
     secondBg.style.backgroundPositionX = -window.innerWidth*previousStep+'px'
 })
+
+const delay = 300;
+let timer = null;
+
+//Javascript
+window.addEventListener('resize', function(){
+    mainBg.style.backgroundPositionX = -window.innerWidth*currentStep + 'px'
+    secondBg.style.backgroundPositionX = -window.innerWidth*previousStep+'px'
+    // clearTimeout(timer);
+    // timer = setTimeout(function(){
+    //     mainBg.style.backgroundPositionX = -window.innerWidth * currentStep + 'px'
+    // }, delay);
+});
 sunForInteract.onmousedown = function(e) {
     sunAreaForDisplay.style.transition = null;
     sunAreaForInteract.style.transition = null;

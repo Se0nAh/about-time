@@ -2,8 +2,19 @@ body {
     margin: 0;
     width: 100vw;
     height: 100vh;
+}
+.background-second {
+    position: fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -10;
     background-image: url("images/main/background.png");
-    background-position: left center;
+    background-position: left;
     background-repeat: no-repeat;
     background-size: calc(100vw * 6) 100vh;
 }
@@ -14,7 +25,7 @@ body {
     right: 0;
     width: 100vw;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     /*background-color: red;*/
     background-image: url("images/main/background.png");
     background-position: left center;
