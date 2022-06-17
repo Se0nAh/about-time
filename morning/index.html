@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Morning - ABOUT TIME</title>
+    <meta name=">Morning - ABOUT TIME" content="About Time은 하루를 6가지의 시간대로 나누어 시간대별로 느낄 수 있는 힐링 포인트를 작품으로 풀어낸 웹전시입니다." />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content=https://about-time.vercel.app/morning">
+    <meta property="og:title" content="Morning - ABOUT TIME">
+    <meta property="og:image" content="../images/banner.png">
+    <meta property="og:description" content="About Time은 하루를 6가지의 시간대로 나누어 시간대별로 느낄 수 있는 힐링 포인트를 작품으로 풀어낸 웹전시입니다.">
+    <meta property="og:site_name" content="ABOUT TIME">
     <link rel="stylesheet" type="text/css" href="../header.css"/>
     <link rel="stylesheet" type="text/css" href="../defaultStyle.css"/>
     <link rel="stylesheet" type="text/css" href="../loading.css"/>
@@ -33,8 +40,9 @@
         }
         #scene {
             position: relative;
-            width: 1280px;
-            height: 720px;
+            width: auto;
+            height: 100vh;
+            aspect-ratio: 16/9;
             margin: 0 auto;
             background-image: url("../images/morning/background.png");
             background-color: #D39871;
@@ -96,8 +104,10 @@
 
         #uiSection {
             position: absolute;
-            width: 1280px;
-            height: 720px;
+            width: auto;
+            height: 100vh;
+            margin: 0 auto;
+            aspect-ratio: 16/9;
             background-size: contain;
             background-repeat: no-repeat;
             background-image: url("../images/morning/guide1.PNG");
@@ -112,12 +122,12 @@
 
         #flower {
             position: absolute;
-            left: 250px;
-            top: 170px;
+            left: 19.53%;
+            top: 23.61%;
             background-image: url("../images/morning/flower.png");
             /*background-position: left top;*/
-            width: 113px;
-            height: 113px;
+            width: 8.828%;
+            height: 15.69%;
             background-size: contain;
             background-repeat: no-repeat;
             /*transition: rotate 1s;*/
@@ -125,11 +135,11 @@
 
         #handle {
             position: absolute;
-            left: 780px;
-            top: 380px;
+            left: calc(780 / 1280 * 100%);
+            top: calc(380 / 720 * 100%);
             z-index: 15;
-            width: 46px;
-            height: 56px;
+            width:  calc(46 / 1280 * 100%);
+            height:  calc(56 / 720 * 100%);
             cursor: pointer;
 
             background-image: url("../images/morning/toaster-handle.png");
@@ -155,8 +165,8 @@
         #canvas {
             position: absolute;
             border: 4px dashed saddlebrown;
-            margin-top: 390px;
-            margin-left: 535px;
+            margin-top:  calc(390 / 1280 * 100%);
+            margin-left:  calc(535 / 720 * 100%);
             z-index: 10;
             cursor: pointer;
         }
@@ -164,12 +174,12 @@
         #breadContainer {
             position: absolute;
             background-image: url("../images/morning/bread.png");
-            background-size: 216px 243px;
+            background-size: 100% 100%;
             background-repeat: no-repeat;
-            top: 200px;
-            left: 530px;
-            width: 216px;
-            height: 242px;
+            top:  calc(200 / 720 * 100%);
+            left:calc(530 / 1280 * 100%);
+            width: calc(216 / 1280 * 100%);
+            height: calc(242 / 720 * 100%);
             cursor: pointer;
             -webkit-transition: -webkit-transform 0.75s;
             transition: transform 0.75s;
@@ -177,28 +187,28 @@
 
         #bread {
 
-            width: 478px;
-            height: 539px;
+            width: calc(478 / 1280 * 100%);
+            height: calc(539 / 720 * 100%);
         }
 
         #gaugeBar {
             visibility: hidden;
             position: absolute;
-            width: 210px;
-            height: 30px;
+            width: calc(210 / 1280 * 100%);
+            height: calc(30 / 720 * 100%);
             background-color: #e7e2e0;
             border-radius: 30px;
             overflow: hidden;
             border: #513324 6px solid;
-            left: 500px;
-            top: 620px;
+            left: calc(500 / 1280 * 100%);
+            top: calc(620 / 720 * 100%);
         }
 
         #gaugeBar-fill {
             width: 3%;
-            height: 30px;
+            height: calc(30 / 720 * 100%);
             background-color: #ffca36;
-            border-radius: 30px;
+            border-radius: calc(30 / 720 * 100%);
             -webkit-transition: -webkit-width 0.35s;
             transition: width 0.35s;
         }
