@@ -1,5 +1,5 @@
 import {preloading, onReady, setVisible} from "./utility.js";
-
+// 참고: https://www.youtube.com/watch?v=55esdUIdYw0&ab_channel=1%EB%B6%84%EC%BD%94%EB%94%A9
 try {
     let imageList;
     const imagePath = '/images/main'

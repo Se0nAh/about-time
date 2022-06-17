@@ -1,3 +1,4 @@
+// js canvas 코드 참고 :https://stickode.tistory.com/240
 import {preloading, onReady, setVisible} from "./utility.js";
 try {
     await preloading([
