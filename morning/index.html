@@ -40,9 +40,8 @@
         }
         #scene {
             position: relative;
-            width: auto;
-            height: 100vh;
-            aspect-ratio: 16/9;
+            width: 1280px;
+            height: 720px;
             margin: 0 auto;
             background-image: url("../images/morning/background.png");
             background-color: #D39871;
@@ -104,10 +103,8 @@
 
         #uiSection {
             position: absolute;
-            width: auto;
-            height: 100vh;
-            margin: 0 auto;
-            aspect-ratio: 16/9;
+            width: 1280px;
+            height: 720px;
             background-size: contain;
             background-repeat: no-repeat;
             background-image: url("../images/morning/guide1.PNG");
@@ -122,12 +119,12 @@
 
         #flower {
             position: absolute;
-            left: 19.53%;
-            top: 23.61%;
+            left: 250px;
+            top: 170px;
             background-image: url("../images/morning/flower.png");
             /*background-position: left top;*/
-            width: 8.828%;
-            height: 15.69%;
+            width: 113px;
+            height: 113px;
             background-size: contain;
             background-repeat: no-repeat;
             /*transition: rotate 1s;*/
@@ -135,11 +132,11 @@
 
         #handle {
             position: absolute;
-            left: calc(780 / 1280 * 100%);
-            top: calc(380 / 720 * 100%);
+            left: 780px;
+            top: 380px;
             z-index: 15;
-            width:  calc(46 / 1280 * 100%);
-            height:  calc(56 / 720 * 100%);
+            width: 46px;
+            height: 56px;
             cursor: pointer;
 
             background-image: url("../images/morning/toaster-handle.png");
@@ -165,8 +162,8 @@
         #canvas {
             position: absolute;
             border: 4px dashed saddlebrown;
-            margin-top:  calc(390 / 1280 * 100%);
-            margin-left:  calc(535 / 720 * 100%);
+            margin-top: 390px;
+            margin-left: 535px;
             z-index: 10;
             cursor: pointer;
         }
@@ -174,12 +171,12 @@
         #breadContainer {
             position: absolute;
             background-image: url("../images/morning/bread.png");
-            background-size: 100% 100%;
+            background-size: 216px 243px;
             background-repeat: no-repeat;
-            top:  calc(200 / 720 * 100%);
-            left:calc(530 / 1280 * 100%);
-            width: calc(216 / 1280 * 100%);
-            height: calc(242 / 720 * 100%);
+            top: 200px;
+            left: 530px;
+            width: 216px;
+            height: 242px;
             cursor: pointer;
             -webkit-transition: -webkit-transform 0.75s;
             transition: transform 0.75s;
@@ -187,28 +184,28 @@
 
         #bread {
 
-            width: calc(478 / 1280 * 100%);
-            height: calc(539 / 720 * 100%);
+            width: 478px;
+            height: 539px;
         }
 
         #gaugeBar {
             visibility: hidden;
             position: absolute;
-            width: calc(210 / 1280 * 100%);
-            height: calc(30 / 720 * 100%);
+            width: 210px;
+            height: 30px;
             background-color: #e7e2e0;
             border-radius: 30px;
             overflow: hidden;
             border: #513324 6px solid;
-            left: calc(500 / 1280 * 100%);
-            top: calc(620 / 720 * 100%);
+            left: 500px;
+            top: 620px;
         }
 
         #gaugeBar-fill {
             width: 3%;
-            height: calc(30 / 720 * 100%);
+            height: 30px;
             background-color: #ffca36;
-            border-radius: calc(30 / 720 * 100%);
+            border-radius: 30px;
             -webkit-transition: -webkit-width 0.35s;
             transition: width 0.35s;
         }
